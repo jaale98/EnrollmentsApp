@@ -1,0 +1,5 @@
+venv/
+user_data.db/
+__pycache__/
+*.pyc
+*.pyo

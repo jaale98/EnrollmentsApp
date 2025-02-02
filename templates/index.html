@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>User Insurance Form</title>
+    <script>
+        function checkInsurancePlan() {
+            var plan = document.getElementById("insurance_plan").value;
+            var tierDiv = document.getElementById("tierDiv");
+            if (plan === "Waive") {
+                tierDiv.style.display = "none";
+            } else {
+                tierDiv.style.display = "block";
+            }
+        }
+        window.onload = function() {
+            checkInsurancePlan();
+        };
+    </script>
+</head>
+<body>
+    <h1>User Insurance Form</h1>
+    <form method="post">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name" required><br><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" required><br><br>
+
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="date" name="date_of_birth" id="date_of_birth" required><br><br>
+
+        <label for="insurance_plan">Insurance Plan:</label>
+        <select name="insurance_plan" id="insurance_plan" onchange="checkInsurancePlan()">
+            <option value="Plan A">Plan A</option>
+            <option value="Plan B">Plan B</option>
+            <option value="Plan C">Plan C</option>
+            <option value="Waive">Waive</option>
+        </select><br><br>
+
+        <div id="tierDiv">
+            <label for="insurance_tier">Insurance Tier:</label>
+            <select name="insurance_tier" id="insurance_tier">
+                <option value="Employee Only">Employee Only</option>
+                <option value="Employee + Spouse">Employee + Spouse</option>
+                <option value="Employee + Children">Employee + Children</option>
+                <option value="Employee + Family">Employee + Family</option>
+            </select><br><br>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
